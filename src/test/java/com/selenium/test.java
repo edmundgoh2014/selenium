@@ -3,6 +3,8 @@ package com.selenium;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Unit test for simple App.
@@ -78,6 +81,27 @@ public class test
     }
 
     @Test
+    public void tickAllCheckBoxesReturnTrue()
+    {
+        //Open Checkboxes Link
+        driver.findElement(By.xpath("//*[@id='content']/ul/li[6]/a")).click();
+
+        //If checkbox is not tick, then tick it
+        WebElement checkbox1 = driver.findElement(By.xpath("//*[@id='checkboxes']/input[1]"));
+        WebElement checkbox2 = driver.findElement(By.xpath("//*[@id='checkboxes']/input[2]"));
+
+        if(checkbox1.isSelected() == false){
+            checkbox1.click();
+        } else if (checkbox2.isSelected() == false) {
+            checkbox2.click();
+        }
+
+        //validate that all checkboxes have been tick
+        assertEquals(true, checkbox1.isSelected());
+        assertEquals(true, checkbox2.isSelected());
+    }
+
+    @Test
     public void dragAndDrop()
     {
         //Open drag & drop link
@@ -113,5 +137,23 @@ public class test
         } else {
             System.out.println("Drag and drop failed.");
         }
+    }
+
+    @Test
+    public void dropdown()
+    {
+        //Open Dropdown Link
+        driver.findElement(By.xpath("//*[@id='content']/ul/li[11]/a")).click();
+
+        //Find the dropdown element
+        Select dropdown = new Select(driver.findElement(By.xpath("//*[@id='dropdown']")));  
+
+        //Select Option 1 and validate that current option is correct
+        dropdown.selectByIndex(1);
+        assertEquals("Option 1", dropdown.getFirstSelectedOption().getText());
+
+        //Select Option 2 and validate that current option is correct
+        dropdown.selectByIndex(2);
+        assertEquals("Option 2", dropdown.getFirstSelectedOption().getText());
     }
 }
