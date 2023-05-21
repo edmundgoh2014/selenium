@@ -3,8 +3,6 @@ package com.selenium;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -155,5 +153,19 @@ public class test
         //Select Option 2 and validate that current option is correct
         dropdown.selectByIndex(2);
         assertEquals("Option 2", dropdown.getFirstSelectedOption().getText());
+    }
+
+    @Test
+    public void multipleWindows()
+    {
+        //Open MultipleWindows Link
+        driver.findElement(By.xpath("//*[@id='content']/ul/li[33]/a")).click();
+
+        //Click on the "Click Here" link to open a new window
+        driver.findElement(By.xpath("//*[@id='content']/div/a")).click();
+
+        //Grab current number of windows opened and assert that it is the correct number 
+        int currentHandleCount = driver.getWindowHandles().size();
+        assertEquals(2, currentHandleCount);
     }
 }
