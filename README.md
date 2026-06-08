@@ -1,22 +1,99 @@
 # Selenium WebDriver Automation Project
 
-A Java web automation project built with **Selenium WebDriver (v4.9.0)** and **JUnit 4** using VS Code, featuring an automated cloud test pipeline via **GitHub Actions**.
+A Java web automation project built with **Selenium WebDriver (v4.9.0)** and **JUnit 4**, developed in **VS Code** and integrated with **GitHub Actions** for continuous testing.
 
 ## 🚀 Automated Test Cases
-* **Basic Auth**
-* **Broken Images**
-* **Checkboxes**
-* **Drag & Drop**
-* **Dropdown**
-* **Multiple Windows**
+
+The project automates the following web scenarios:
+
+* ✅ Basic Authentication
+* ✅ Broken Images Validation
+* ✅ Checkboxes
+* ✅ Drag and Drop
+* ✅ Dropdown Selection
+* ✅ Multiple Windows Handling
+
+---
+
+## 🛠 Tech Stack
+
+* Java 17
+* Selenium WebDriver 4.9.0
+* JUnit 4
+* Maven
+* GitHub Actions
+* Chrome Browser (Headless in CI)
+
+---
+
+## 📁 Project Structure
+
+```text
+project-root/
+│
+├── src/
+│   ├── main/
+│   └── test/
+│       └── java/
+│           └── tests/
+│
+├── .github/
+│   └── workflows/
+│       └── selenium-tests.yml
+│
+├── pom.xml
+└── README.md
+```
+
+---
+
+## ⚙️ Prerequisites
+
+Before running the project locally, ensure you have:
+
+* Java JDK 17 or later
+* Maven 3.8+
+* Google Chrome installed
+* Internet connection
+
+Verify installation:
+
+```bash
+java -version
+mvn -version
+```
+
+---
+
+## ▶️ Running Tests Locally
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd <project-name>
+```
+
+Execute all tests:
+
+```bash
+mvn test
+```
+
+Execute a specific test:
+
+```bash
+mvn -Dtest=TestClassName test
+```
 
 ---
 
 ## ⚙️ CI/CD Integration: GitHub Actions
 
-This project automatically executes its test suite in a headless Linux environment on every `push` or `pull_request` to the `main`/`master` branches.
+This project automatically executes its test suite in a headless Linux environment on every `push` or `pull_request` to the `main` and `master` branches.
 
 ### Workflow Configuration (`.github/workflows/selenium-tests.yml`)
+
 ```yaml
 name: Java Selenium CI
 
@@ -43,3 +120,4 @@ jobs:
 
     - name: Run Tests with Maven
       run: mvn test
+```
