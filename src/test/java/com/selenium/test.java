@@ -11,6 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -100,15 +101,19 @@ public class test
         WebElement checkbox1 = driver.findElement(By.xpath("//*[@id='checkboxes']/input[1]"));
         WebElement checkbox2 = driver.findElement(By.xpath("//*[@id='checkboxes']/input[2]"));
 
-        if(checkbox1.isSelected() == false){
+        // Check Checkbox 1 independently
+        if (!checkbox1.isSelected()){
             checkbox1.click();
-        } else if (checkbox2.isSelected() == false) {
+        } 
+    
+        // Check Checkbox 2 independently (Changed 'else if' to 'if')
+        if (!checkbox2.isSelected()) {
             checkbox2.click();
         }
 
-        //validate that all checkboxes have been tick
-        assertEquals(true, checkbox1.isSelected());
-        assertEquals(true, checkbox2.isSelected());
+        // Validate that ALL checkboxes are ticked
+        assertTrue(checkbox1.isSelected());
+        assertTrue(checkbox2.isSelected());
     }
 
     @Test
