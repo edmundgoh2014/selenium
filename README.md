@@ -3,12 +3,12 @@
 A Java web automation project built with **Selenium WebDriver (v4.9.0)** and **JUnit 4** using VS Code, featuring an automated cloud test pipeline via **GitHub Actions**.
 
 ## 🚀 Automated Test Cases
-* **Basic Auth** – Handles authentication via user credentials injected directly into the URL.
-* **Broken Images** – Programmatically detects broken images using the HTML `naturalWidth` attribute.
-* **Checkboxes** – Independently toggles and validates standalone checkbox input elements.
-* **Drag & Drop** – Simulates HTML5 drag-and-drop utilizing a `JavascriptExecutor` script injection.
-* **Dropdown** – Validates list selection states using Selenium's native `Select` wrapper class.
-* **Multiple Windows** – Focuses and tracks newly spawned browser tab handles.
+* **Basic Auth**
+* **Broken Images**
+* **Checkboxes**
+* **Drag & Drop**
+* **Dropdown**
+* **Multiple Windows**
 
 ---
 
