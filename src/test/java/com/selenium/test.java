@@ -25,8 +25,20 @@ public class test
 
     @Before
     public void setUp() {
-        // This code will be executed before each test case
-        driver = new ChromeDriver();
+        // 1. Create ChromeOptions to configure how Chrome behaves
+        ChromeOptions options = new ChromeOptions();
+        
+        // 2. Turn on Headless mode (CRITICAL for GitHub Actions)
+        options.addArguments("--headless=new"); 
+        
+        // 3. Recommended flags for stability in Linux/CI environments
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        
+        // 4. Pass the options into your ChromeDriver instance
+        driver = new ChromeDriver(options);
+        
+        // 5. Execute your test steps
         driver.navigate().to("http://the-internet.herokuapp.com/?ref=hackernoon.com");
         driver.manage().window().maximize();
     }
