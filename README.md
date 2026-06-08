@@ -6,12 +6,14 @@ A Java web automation project built with **Selenium WebDriver (v4.9.0)** and **J
 
 The project automates the following web scenarios:
 
-✅ Basic Authentication
-✅ Broken Images Validation
-✅ Checkboxes
-✅ Drag and Drop
-✅ Dropdown Selection
-✅ Multiple Windows Handling
+| No. | Test Case |
+|------|------------|
+| 1 | Basic Auth |
+| 2 | Broken Images |
+| 3 | Checkboxes |
+| 4 | Drag & Drop |
+| 5 | Dropdown |
+| 6 | Multiple Windows |
 
 ---
 
